@@ -1,0 +1,45 @@
+{
+  "name": "webhook-pipeline",
+  "version": "1.0.0",
+  "description": "Webhook ingestion and delivery pipeline service",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/index.js",
+    "start:worker": "node dist/src/worker/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev:worker": "ts-node-dev --respawn --transpile-only src/worker/index.ts",
+    "migrate": "node dist/src/db/migrate.js",
+    "migrate:dev": "ts-node src/db/migrate.ts",
+    "test": "jest --forceExit --detectOpenHandles",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "helmet": "^7.1.0",
+    "pg": "^8.12.0",
+    "uuid": "^10.0.0",
+    "winston": "^3.13.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/helmet": "^0.0.48",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.9",
+    "@types/pg": "^8.11.6",
+    "@types/supertest": "^6.0.2",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.3"
+  }
+}
