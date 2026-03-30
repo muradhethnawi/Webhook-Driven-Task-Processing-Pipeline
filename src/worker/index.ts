@@ -48,7 +48,8 @@ async function workerLoop() {
       const promises = [];
       for (let i = 0; i < CONCURRENCY - activeJobs; i++) promises.push(processNextJob());
       await Promise.allSettled(promises);
-    } catch (err) { logger.error("Worker loop error", { err }); }
+    } catch (err) {
+      logger.error("Worker loop error", { err }); }
     await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
   }
   await pool.end();
